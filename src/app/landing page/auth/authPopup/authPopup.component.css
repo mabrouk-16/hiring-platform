@@ -1,0 +1,19 @@
+@media (max-width: 576px) {
+    .welcome-foodycraft {
+        font-size: 25px !important;
+    }
+
+    :host ::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+        width: 100% !important;
+    }
+
+    :host ::ng-deep .checkbox-PRIVACY,
+    :host ::ng-deep .checkbox-TERMS,
+    :host ::ng-deep .mdc-button__label,
+    :host ::ng-deep .mat-mdc-checkbox-1-input {
+        font-size: 10px !important;
+    }
+}
+.referral-popup-container {
+    max-width: 580px;
+}

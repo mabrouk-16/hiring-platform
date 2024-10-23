@@ -1,0 +1,135 @@
+.joinUs {
+    background-color: #3884da;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font: 22px;
+    text-align: center;
+    width: fit-content;
+}
+/* -------------------------------------------------------- */
+
+.panel-header {
+    max-width: 315px;
+}
+
+.widht-expansion-panel {
+    max-width: 656px;
+}
+
+.Scheduling-accordion,
+.branding-ocordion {
+    margin-left: 35px;
+}
+
+:host ::ng-deep .mat-expansion-indicator::after {
+    padding: 5px !important;
+}
+
+.features-img {
+    width: 100%;
+}
+
+:host ::ng-deep {
+    .mat-accordion {
+        &.accordion-white {
+            .mat-expansion-panel {
+                --mat-expansion-container-background-color: var(--sys-surface-container-lowest);
+            }
+        }
+
+        .mat-expansion-panel {
+            margin-top: 30px;
+            border-radius: 12px !important;
+            --mat-expansion-header-collapsed-state-height: 68px;
+        }
+
+        .mat-expansion-panel-header {
+            padding: 10px 24px !important;
+        }
+    }
+}
+
+.commencation-img {
+    margin: 55px 0px 0px 15px !important;
+}
+
+@media (max-width: 1024px) {
+    .features-img {
+        width: 300px !important;
+    }
+
+    .last-img {
+        width: 300px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-img {
+        width: 300px !important;
+    }
+
+    .last-img {
+        width: 300px !important;
+    }
+
+    .text-panel-title {
+        font-size: 15px !important;
+    }
+
+    .Scheduling-accordion {
+        margin-left: 35px;
+    }
+
+    .text-section-large {
+        font-size: 30px !important;
+    }
+}
+
+@media (max-width: 576px) {
+
+    :host ::ng-deep .mat-accordion .mat-expansion-panel:not(.mat-expanded),
+    .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+        margin-top: 10px !important;
+    }
+
+    .Scheduling-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+
+        img {
+            width: 88px !important;
+            margin-right: 10px;
+        }
+
+        h1 {}
+    }
+
+    .commencation-img {
+        margin: 0px !important;
+    }
+
+    .features-img {
+        width: 100px !important;
+    }
+
+    .last-img {
+        width: 100px !important;
+    }
+
+    .text-section-large {
+        font-size: 25px !important;
+    }
+
+    .text-section {
+        font-size: 22px !important;
+    }
+
+    .Scheduling-accordion,
+    .branding-ocordion {
+        margin-left: 0px;
+    }
+}

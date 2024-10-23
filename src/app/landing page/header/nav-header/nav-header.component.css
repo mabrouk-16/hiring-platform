@@ -1,0 +1,12 @@
+a {
+    text-decoration: none;
+}
+
+.mat-toolbar {
+    --mat-toolbar-standard-height: 114px !important;
+    --mat-toolbar-mobile-height: 94px !important;
+}
+
+.four-buttons {
+    gap: 61px;
+}

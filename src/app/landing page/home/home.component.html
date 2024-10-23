@@ -1,0 +1,318 @@
+<div class="container mt-5" [@fadeInOut]="!isVisible() ? 'leave' : 'enter'">
+  <div class="d-flex justify-content-center gap-5">
+    <div class="left-side d-flex flex-column justify-content-center">
+      <h1 class="mat-display-medium my-3">Welcome to Our Hiring App!</h1>
+      <p class="mat-body-large">
+        Start your journey with us and discover a new era of patient care.!
+      </p>
+      <button mat-button-flat class="joinUs">Join Us</button>
+    </div>
+    <div class="right-side">
+      <img
+        src="assets/images/we-are-hiring-illustration-download-in-svg-png-gif-file.webp"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<!-- ---------------------------------------------------------------------------------------------- -->
+<app-feature-section></app-feature-section>
+<!-- <------------------------------- start Payments  section --------------------------------------------->
+<div 
+[@goRight]="goLeft() ? 'leave' : 'enter'"
+style="translate: 0px;"
+class="d-flex align-items-center justify-content-center px-3 px-md-5 py-5">
+  <div class="container mt-lg-5 mt-md-0">
+    <div
+      class="d-flex flex-column flex-md-row align-items-start align-items-md-center mt-2"
+    >
+      <div class="order-1 order-md-0 col-12 col-md-6 col-lg-7">
+        <div class="mt-0">
+          <mat-accordion class="accordion-white">
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header class="bg-bkg-color">
+                <mat-panel-title class="bg-bkg-color">
+                  <p class="text-panel-title f-22 fw-700 on-surface-color">
+                    Invoices
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Effortless Billing
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Generate and send professional invoices to patients directly
+                    through the platform, streamlining your billing process.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Effortless Billing
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Generate and send professional invoices to patients directly
+                    through the platform, streamlining your billing process.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Effortless Billing
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Generate and send professional invoices to patients directly
+                    through the platform, streamlining your billing process.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Effortless Billing
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Generate and send professional invoices to patients directly
+                    through the platform, streamlining your billing process.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p class="mat-title-large fw-700 on-surface-color">
+                    Invoices
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Customization Options
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Create custom invoice templates with your branding and
+                    include relevant service details for clear communication.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Customization Options
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Create custom invoice templates with your branding and
+                    include relevant service details for clear communication.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Customization Options
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Create custom invoice templates with your branding and
+                    include relevant service details for clear communication.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p class="mat-title-large fw-700 on-surface-color">
+                    Improved Efficiency
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Improved Efficiency
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Save time and reduce errors with automated invoice
+                    generation and streamlined payment processing.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Improved Efficiency
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Save time and reduce errors with automated invoice
+                    generation and streamlined payment processing.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Improved Efficiency
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Save time and reduce errors with automated invoice
+                    generation and streamlined payment processing.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p class="mat-title-large fw-700 on-surface-color">
+                    Enhanced Convenience
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Enhanced Convenience
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Offer patients the option to view and download invoices
+                    electronically for easy record keeping and payment tracking.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Enhanced Convenience
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Offer patients the option to view and download invoices
+                    electronically for easy record keeping and payment tracking.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Enhanced Convenience
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Offer patients the option to view and download invoices
+                    electronically for easy record keeping and payment tracking.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+      <div class="d-flex flex-row flex-md-column flex-fill mb-2 mb-md-0">
+        <!-- <h1
+          class="mat-display-small order-1 order-md-0 primary-color mx-2 d-flex align-items-center justify-content-end"
+        >
+          Invoices
+        </h1> -->
+
+        <div class="order-0 order-md-1 d-flex justify-content-center">
+          <img
+            src="assets/images/features/payments-img.webp"
+            class="features-img"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <------------------------------- End Payments  section --------------------------------------------->
+
+<div
+[@goLeft]="goRight() ? 'leave' : 'enter'"
+
+  class="bg-surface-container-lowest d-flex align-items-center justify-content-center px-3 px-md-5 py-5"
+>
+  <div class="container mt-lg-2 mt-md-0">
+    <div
+      class="d-flex flex-column flex-md-row align-items-start align-items-md-center mt-2"
+    >
+      <div class="d-flex flex-row flex-md-column flex-fill mb-2 mb-md-0">
+        <h1
+          class="mat-display-small rder-1 order-md-0 primary-color mx-2 d-flex align-items-center justify-content-start"
+        >
+          AI & Recommendations
+        </h1>
+
+        <div
+          class="order-0 order-md-1 d-flex justify-content-center justify-content-sm-start"
+        >
+          <img
+            src="assets/images/features/AI-img.webp"
+            class="last-img features-img"
+          />
+        </div>
+      </div>
+      <div class="col-md-7 col-12 d-flex align-items-md-center">
+        <div class="mt-0">
+          <mat-accordion>
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header class="bg-surface-bright">
+                <mat-panel-title class="bg-surface-bright">
+                  <strong class="text-panel-title f-20 fw-700 on-surface-color">
+                    Recommendation Engine
+                  </strong>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Interactive job search with reminders
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Uses the analyzed data to personalize dietary
+                    recommendations in real-time.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Interactive job search with reminders
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Uses the analyzed data to personalize dietary
+                    recommendations in real-time.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Interactive job search with reminders
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Uses the analyzed data to personalize dietary
+                    recommendations in real-time.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <p class="mat-title-medium fw-700 m-0 color-accordion-panel">
+                    Interactive job search with reminders
+                  </p>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Uses the analyzed data to personalize dietary
+                    recommendations in real-time.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<!-- ---------------------------------------------------------------------------------------------- -->
+<!-- <button (click)="isVisible.set(true)">here</button> -->
+<div
+  #fadeInOut
+  [@fadeInOut]="!isVisible() ? 'leave' : 'enter'"
+  class="transition-section bg-surface-container-lowest d-flex align-items-center justify-content-center px-3 px-md-5 py-5"
+>
+  <div class="container mt-lg-2 mt-md-0">
+    <div
+      class="d-flex flex-column flex-md-row align-items-start align-items-md-center mt-2"
+    >
+      <div class="Scheduling-header">
+        <h1
+          class="m-0 mb-1 order-1 order-md-0 primary-color d-flex justify-content-start"
+        >
+          Features
+        </h1>
+
+        <div class="order-0 order-md-1">
+          <img
+            src="../../../assets/images/features/Scheduling.webp"
+            class="features-img"
+          />
+        </div>
+      </div>
+      <div
+        class="col-md-7 col-12 d-flex align-items-md-center Scheduling-accordion"
+      >
+        <div class="mt-0">
+          <mat-accordion>
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header class="bg-surface-bright">
+                <mat-panel-title class="bg-surface-bright">
+                  <p class="mat-title-large fw-700 on-surface-color">
+                    Eliminate Double Booking
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span
+                    class="mat-title-medium fw-700 m-0 color-accordion-panel"
+                  >
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium fw-700 color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium fw-700 color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium fw-700 color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel
+              class="bg-bkg-color widht-expansion-panel"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
+              <mat-expansion-panel-header class="bg-surface-bright">
+                <mat-panel-title class="bg-surface-bright">
+                  <p class="mat-title-large fw-700 on-surface-color">
+                    Eliminate Double Booking
+                  </p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="row bg-bkg-color">
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+                <div class="panel-header mt-3 col-12 col-md-6">
+                  <span class="mat-title-medium color-accordion-panel">
+                    Eliminate Double Booking
+                  </span>
+                  <p class="mt-0 mat-body-large color-accordion-panel">
+                    Real-time appointment availability ensures you never have
+                    overlapping sessions, keeping your schedule organized and
+                    efficient.
+                  </p>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

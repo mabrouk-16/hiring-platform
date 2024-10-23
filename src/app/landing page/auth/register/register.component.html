@@ -1,0 +1,203 @@
+<div class="container py-2 overflow-hidden">
+  <h4 class="text-center f-16 on-surface-color"></h4>
+  <form
+    class="row py-2"
+    (ngSubmit)="submitRegister()"
+    [formGroup]="registerForm"
+  >
+    <!-- <div class="loading-shade" *ngIf="authService.loading()">
+      <mat-spinner></mat-spinner>
+    </div> -->
+
+    <mat-form-field class="mb-2 col-12">
+      <mat-label> full name </mat-label>
+      <input formControlName="name" matInput required name="name" />
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('name')?.touched && this.registerForm.get('name')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mb-2 col-12">
+      <mat-label>email </mat-label>
+      <input
+        formControlName="email"
+        matInput
+        placeholder="pat@example.com"
+        required
+        name="email"
+        email
+      />
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('email')?.touched && this.registerForm.get('email')?.errors?.['email']"
+      >
+        invalidMail
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mb-2 col-12">
+      <mat-label>Birthday </mat-label>
+      <input
+        (dateChange)="onDateChange($event)"
+        formControlName="dateOfBirth"
+        matInput
+        [matDatepicker]="picker"
+        [max]="maxBirthDate"
+        [min]="minBirthDate"
+        name="birthDate"
+        (focus)="picker.open()"
+        required
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('dateOfBirth')?.touched && this.registerForm.get('dateOfBirth')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+      <mat-error class="error-messages" *ngIf="datepickerAge">
+        *You must be over 13 years old to join Foody Craft
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mb-2 col-12">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+        @for (country of countries_list ; track country) {
+        <mat-option id="{{ country.code }}" [value]="country.code">{{
+          country.name
+        }}</mat-option>
+        }
+      </mat-select>
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('country')?.touched && this.registerForm.get('country')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      [classList]="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.errors?.['pattern'] ?'mb-4 col-12':'mb-2 col-12' "
+    >
+      <mat-label> password </mat-label>
+      <input
+        formControlName="password"
+        matInput
+        [type]="hide ? 'text' : 'password'"
+        name="password"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        class="f-18"
+        type="button"
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <i [ngClass]="hide ? 'icon-visibility' : 'icon-visibility-off'"></i>
+      </button>
+
+      <mat-error
+        class="error-messages confirm_error-messages"
+        *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+      <mat-error
+        class="error-messages confirm_error-messages"
+        *ngIf="this.registerForm.get('password')?.touched && this.registerForm.get('password')?.errors?.['pattern']"
+      >
+        Password must be at least 8 characters and contain at least 1 uppercase
+        letter, 1 lowercase letter and 1 number.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mb-2 col-12">
+      <mat-label> onfirm password </mat-label>
+      <input
+        formControlName="confirm_password"
+        matInput
+        [type]="hide ? 'text' : 'password'"
+        name="confirmPassword"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        class="f-18"
+        type="button"
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <i [ngClass]="hide ? 'icon-visibility' : 'icon-visibility-off'"></i>
+      </button>
+      <mat-error
+        class="error-messages"
+        *ngIf="this.registerForm.get('confirm_password')?.touched && this.registerForm.get('confirm_password')?.errors?.['required']"
+      >
+        required
+      </mat-error>
+      <mat-error
+        class="error-messages"
+        *ngIf="!this.registerForm.get('confirm_password')?.errors?.['required'] && this.registerForm.get('confirm_password')?.touched && this.registerForm.get('password')?.value != this.registerForm.get('confirm_password')?.value"
+      >
+        confirmpassword
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <section class="checkbox-section">
+      <mat-checkbox
+        [checked]="!privacyChecked"
+        (change)="privacyCheck()"
+        name="approvedTerms"
+        required
+        class="me-0"
+      >
+        {{ "auth.register.I_AGREE_TO 
+
+        <a class="primary-color" [routerLink]="['/', urlsNames.PRIVACY]">{{
+          "footer.privacyPolicy" | transloco
+        }}</a>
+        {{ "auth.register.AND 
+
+        <a class="primary-color" [routerLink]="['/', urlsNames.TERMS]">{{
+          "footer.termsOfUse" | transloco
+        }}</a>
+        .
+      </mat-checkbox>
+    </section> -->
+
+    <div class="d-flex justify-content-center mt-1">
+      <button
+        type="submit"
+        mat-flat-button
+        color="primary"
+        class="w-50"
+        id="login-sign-btn"
+      >
+        <!-- [disabled]="
+          this.authService.loading() ||
+          privacyChecked ||
+          registerForm.invalid ||
+          this.registerForm.get('password')?.value !=
+            this.registerForm.get('confirm_password')?.value
+        " -->
+        SIGNUP
+      </button>
+    </div>
+  </form>
+</div>
