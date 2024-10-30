@@ -18,6 +18,8 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FeatureSectionComponent } from './feature-section/feature-section.component';
+import { RecentSectionComponent } from "./recent-section/recent-section.component";
+import { HomeJobsComponent } from "./home-jobs/home-jobs.component";
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,9 @@ import { FeatureSectionComponent } from './feature-section/feature-section.compo
     MatExpansionModule,
     CommonModule,
     FeatureSectionComponent,
-  ],
+    RecentSectionComponent,
+    HomeJobsComponent
+],
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
