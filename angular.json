@@ -80,7 +80,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
-              "src/styles/new.css",
+              "src/styles/new.scss",
               "src/styles/responsive.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]

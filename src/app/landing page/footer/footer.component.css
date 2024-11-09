@@ -1,0 +1,127 @@
+.info_section {
+    background-color: #030d47;
+    color: #ffffff;
+    padding: 65px 0 45px 0;
+}
+
+.info_section h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info_section .info_links ul {
+    padding-left: 15px;
+}
+
+.info_section .info_links ul .active::before {
+    background-color: #e41a2b;
+}
+
+.info_section .info_links ul li {
+    list-style-type: none;
+    position: relative;
+}
+
+.info_section .info_links ul li::before {
+    content: "";
+    left: -15px;
+    top: 50%;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.info_section .info_links ul li a {
+    color: #ffffff;
+}
+
+.info_section .info_links ul li:hover::before {
+    background-color: #e41a2b;
+}
+
+.info_section .info_form input {
+    width: 100%;
+    border: none;
+    height: 45px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    background-color: #eaeaea;
+    outline: none;
+    color: #101010;
+}
+
+.info_section .info_form button {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #e41a2b;
+    color: #ffffff;
+    border-radius: 5px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    border: 1px solid #e41a2b;
+    outline: none;
+}
+
+.info_section .info_form button:hover {
+    background-color: transparent;
+    color: #e41a2b;
+}
+
+.info_section .info_social .social_container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.info_section .info_social .social_container a {
+    width: 30px;
+    height: 30px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    margin: 0 5px;
+    color: #1a1c78;
+    font-size: 16px;
+}
+
+.info_section .info_social .social_container a:hover {
+    color: #e41a2b;
+}
+
+/* footer section*/
+.footer_section {
+    position: relative;
+    background-color: #030d47;
+    text-align: center;
+}
+
+.footer_section p {
+    border-top: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 25px 0;
+    margin: 0;
+}
+
+.footer_section p a {
+    color: inherit;
+}

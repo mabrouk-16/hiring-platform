@@ -1,0 +1,65 @@
+$white: #ffffff;
+$black: #000000;
+$primary1: #08135c;
+$primary2: #e41a2b;
+$textCol: #999;
+
+@mixin main-font {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
+  display: inline-block;
+  padding: $pad1 $pad2;
+  background-color: $col1;
+  color: $col2;
+  border-radius: $bRadius;
+  transition: all .3s;
+  border: 1px solid $col1;
+  outline: none;
+
+  &:hover {
+    background-color: transparent;
+    color: $col1;
+  }
+}
+
+@mixin upperBold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+
+body {
+  @include main-font;
+  color: #0c0c0c;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+// about section
+.about_section {
+    .row {
+        align-items: center;
+    }
+
+    .img-box {
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+    }
+
+    .detail-box {
+        p {
+            margin-top: 15px;
+        }
+
+        a {
+            @include hero_btn($primary1, $white, 10px, 45px, 5px);
+            margin-top: 15px;
+        }
+    }
+}

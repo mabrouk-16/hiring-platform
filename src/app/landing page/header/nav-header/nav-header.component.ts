@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   standalone: true,
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, RouterLink],
   templateUrl: './nav-header.component.html',
-  styleUrls: ['./nav-header.component.css'],
+  styleUrls: ['./nav-header.component.scss'],
 })
 export class NavHeaderComponent {
   selectedTab: number = 0;
