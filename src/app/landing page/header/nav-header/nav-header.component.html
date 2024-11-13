@@ -7,7 +7,7 @@
         mat-button
         color="primary"
         routerLinkActive="active"
-        routerLink="/"
+        [routerLink]="['/landing']"
       >
         Home
       </button>
@@ -15,7 +15,7 @@
         mat-button
         color="primary"
         routerLinkActive="active"
-        routerLink="/analytics"
+        [routerLink]="['analytics']"
       >
         Analytics
       </button>
@@ -23,7 +23,7 @@
         mat-button
         color="primary"
         routerLinkActive="active"
-        routerLink="/about"
+        [routerLink]="['about']"
       >
         About Us
       </button>

@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-import { NavHeaderComponent } from './landing page/header/nav-header/nav-header.component';
-import { HomeComponent } from './landing page/home/home.component';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from "./landing page/footer/footer.component";
+import { LeftSideComponent } from "./web-app/left-side/left-side.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavHeaderComponent, RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, LeftSideComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
 }

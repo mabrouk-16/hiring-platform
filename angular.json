@@ -81,7 +81,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
               "src/styles/new.scss",
-              "src/styles/responsive.css"
+              "src/styles/responsive.css",
+              "src/styles/web_style.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
           }
