@@ -1,0 +1,32 @@
+<div class="form_container">
+  <form name="form" (ngSubmit)="submitRegister()" [formGroup]="registerForm">
+    <!-- name input box-->
+    <div class="form_wrap form_grp">
+      <div class="form_item">
+        <label>First Name</label>
+        <input formControlName="firstName" matInput required name="name" />
+      </div>
+      <div class="form_item ms-2">
+        <label>Last Name</label>
+        <input formControlName="lastName" matInput required name="name" />
+      </div>
+    </div>
+    <!-- email input-->
+    <div class="form_wrap">
+      <div class="form_item">
+        <label>Email Address</label>
+        <input  formControlName="email"  matInput  placeholder="pat@example.com"  required  name="email"  email/>
+      </div>
+    </div>
+    <!--password and confirm password-->
+    <div class="form_wrap form_grp">
+      <div class="form_item"><label>Password</label>
+        <input  formControlName="password"  matInput  type="password"  name="password"  required/>
+      </div>
+    </div>
+    <!--submit button-->
+    <div class="btn">
+      <input [disabled]="registerForm.invalid" type="submit" value="Register" />
+    </div>
+  </form>
+</div>

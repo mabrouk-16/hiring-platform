@@ -1,10 +1,9 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <a href="" class="logo"
-      >
+    <a href="" class="logo">
       Logo
       <!-- <img src="" alt="logo"/> -->
-  </a>
+    </a>
     <div class="search-box">
       <img src="assets/web_images/search.png" />
       <input type="text" placeholder="Search for anything" />
@@ -14,7 +13,8 @@
     <ul>
       <li>
         <a href="#" class="active-link"
-          ><img src="assets/web_images/home.png" alt="home" /> <span>Home</span></a
+          ><img src="assets/web_images/home.png" alt="home" />
+          <span>Home</span></a
         >
       </li>
       <li>
@@ -25,7 +25,8 @@
       </li>
       <li>
         <a href="#"
-          ><img src="assets/web_images/jobs.png" alt="jobs" /> <span>Jobs</span></a
+          ><img src="assets/web_images/jobs.png" alt="jobs" />
+          <span>Jobs</span></a
         >
       </li>
       <li>
@@ -43,13 +44,18 @@
     </ul>
   </div>
   <div class="navbar-right">
-    <div class="online">
+    <div>
+      <button class="login_btn" (click)="login()">Login</button>
+      <button class="reg_btn" (click)="register()">register</button>
+    </div>
+    <!-- <div class="online">
       <img
         src="assets/web_images/user-1.png"
         class="nav-profile-img"
-        onclick="toggleMenu()"
+        (click)="toggleMenu()"
       />
-    </div>
+    </div> -->
+
   </div>
   <!----Dropdown menu-->
   <div class="profile-menu-wrap" id="profileMenu">
@@ -90,7 +96,7 @@
     </div>
   </div>
 </nav>
-<script>
+<!-- <script>
     let profileMenu = document.getElementById("profileMenu");
 
     function toggleMenu(){
@@ -111,4 +117,4 @@
         }
     }
 
-</script>
+</script> -->

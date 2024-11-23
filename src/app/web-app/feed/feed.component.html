@@ -1,0 +1,59 @@
+@if (isLoading()) { @for (item of arr; track $index) {
+<div class="shimmer w-100 mb-5">
+  <div class="wrapper">
+    <div class="d-flex align-items-center my-3 gap-4"><div class="animate icon rounded-circle"></div><div class="stroke animate title"></div>
+    </div>
+    <div class="image-card animate"></div>
+    <div class="stroke animate link"></div>
+    <div class="stroke animate description"></div>
+  </div>
+</div>
+} }@else {
+<!-- =================================== -->
+<div class="create-post">
+  <div class="create-post-input">
+    <img src="assets/web_images/user-1.png" />
+    <textarea rows="2" placeholder="Write Something"></textarea>
+  </div>
+  <div class="create-post-links">
+    <li><img src="assets/web_images/photo.png" />Photo</li>
+    <li><img src="assets/web_images/video.png" />Video</li>
+    <li><img src="assets/web_images/event.png" />Event</li>
+    <li>Post</li>
+  </div>
+</div>
+<!-- <div class="sort-by">
+  <hr />
+  <p>
+    Sort by : <span>top <img src="assets/web_images/down-arrow.png" /></span>
+  </p>
+</div> -->
+<!-- ================================================================= -->
+@for (post of posts; track $index) {
+<div class="post">
+  <div class="post-author">
+    <img [src]="post.userImage" />
+    <div><h1>{{ post.name }}</h1><small>{{ post.title }}</small><small>{{ post.time }}</small>
+    </div>
+  </div>
+  <p>{{ post.body }}</p>
+  <img [src]="post.thumbnail" width="100%" />
+  <div class="post-stats">
+    <div><img src="assets/web_images/thumbsup.png" /><img src="assets/web_images/love.png" /><img src="assets/web_images/clap.png" /><span class="liked-users">{{ post.likedUsers }}</span>
+    </div>
+    <div><span  >{{ post.comments }} comments &middot; {{ post.shares }} shares</span>
+    </div>
+  </div>
+  <div class="post-activity">
+    <div><img src="assets/web_images/user-1.png" class="post-activity-user-icon" /><img  src="assets/web_images/down-arrow.png"  class="post-activity-arrow-icon"/>
+    </div>
+    <div class="post-activity-link"><img src="assets/web_images/like.png" /><span>Like</span></div>
+    <div class="post-activity-link"><img src="assets/web_images/comment.png" /><span>Comment</span>
+    </div>
+    <div class="post-activity-link"><img src="assets/web_images/share.png" /><span>Share</span>
+    </div>
+    <div class="post-activity-link"><img src="assets/web_images/send.png" /><span>Send</span>
+    </div>
+  </div>
+</div>
+} }
