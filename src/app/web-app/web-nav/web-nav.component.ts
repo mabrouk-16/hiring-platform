@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../auth/login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { WebRegisterComponent } from '../auth/web-register/web-register.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-web-nav',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './web-nav.component.html',
   styleUrls: ['./web-nav.component.css'],
 })

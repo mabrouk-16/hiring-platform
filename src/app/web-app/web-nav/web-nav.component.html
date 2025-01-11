@@ -12,14 +12,14 @@
   <div class="navbar-center">
     <ul>
       <li>
-        <a href="#" class="active-link"
+        <a routerLinkActive="active-link" [routerLink]="['/', 'app']"
           ><img src="assets/web_images/home.png" alt="home" />
           <span>Home</span></a
         >
       </li>
       <li>
-        <a href="#"
-          ><img src="assets/web_images/network.png" alt="network" />
+        <a routerLinkActive="active-link" [routerLink]="['/', 'app', 'network']">
+          <img src="assets/web_images/network.png" alt="network" />
           <span>My Network</span></a
         >
       </li>
@@ -36,8 +36,8 @@
         >
       </li>
       <li>
-        <a href="#"
-          ><img src="assets/web_images/notification.png" alt="notification" />
+        <a routerLinkActive="active-link" [routerLink]="['/', 'app', 'notification']">
+          <img src="assets/web_images/notification.png" alt="notification" />
           <span>Notifications</span></a
         >
       </li>
@@ -55,7 +55,6 @@
         (click)="toggleMenu()"
       />
     </div> -->
-
   </div>
   <!----Dropdown menu-->
   <div class="profile-menu-wrap" id="profileMenu">

@@ -5,22 +5,32 @@ import { AboutUsComponent } from './landing page/about-us/about-us.component';
 import { LandingComponent } from './landing page/landing.component';
 import { AppComponent } from './app.component';
 import { WebAppComponent } from './web-app/web-app.component';
+import { NetworkComponent } from './web-app/pages/my network/network/network.component';
+import { HomePageComponent } from './web-app/pages/home/home.component';
+import { NotificationPageComponent } from './web-app/pages/notification-page/notification-page.component';
 export const routes: Routes = [
-  { path: '', redirectTo: 'app',pathMatch:'full' },
-  { path: '',component: AppComponent,
+  { path: '', redirectTo: 'app', pathMatch: 'full' },
+  {
+    path: '',
+    component: AppComponent,
     children: [
-      { path: 'app',component: WebAppComponent,children: [
-          { path: '', component: WebAppComponent,
-          },
+      {
+        path: 'app',
+        component: WebAppComponent,
+        children: [
+          { path: '', component: HomePageComponent },
+          { path: 'network', component: NetworkComponent },
+          { path: 'notification', component: NotificationPageComponent },
         ],
       },
-      {path: 'landing', component: LandingComponent,  children: [
-          {   path: '',    component: HomeComponent,
-          },
-          {   path: 'analytics',    component: AnalyticsComponent,
-          },
-          {   path: 'about',    component: AboutUsComponent,
-          },
+
+      {
+        path: 'landing',
+        component: LandingComponent,
+        children: [
+          { path: '', component: HomeComponent },
+          { path: 'analytics', component: AnalyticsComponent },
+          { path: 'about', component: AboutUsComponent },
         ],
       },
     ],
