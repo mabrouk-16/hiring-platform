@@ -1,13 +1,16 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
-import { user } from './auth';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { User } from './auth';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  user: WritableSignal<user | null | undefined> = signal(null);
+    private angularAuth = inject(Auth);
+  
+  user: WritableSignal<User | null | undefined> = signal(null);
   constructor() {}
-  saveUser(user: user | undefined) {
+  saveUser(user: User | undefined) {
     this.user?.set(user);
     localStorage.setItem('user', JSON.stringify(this.user()));
   }
@@ -17,8 +20,5 @@ export class UserService {
       this.user?.set(currentUser);
     }
   }
-  logout() {
-    // localStorage.setItem('user', '');
-    localStorage.clear();
-  }
+
 }

@@ -1,11 +1,13 @@
 <div class="main-container">
   <!-- left side -->
+  @if (userService.user() ) {
   <div class="left-sidebar">
     <div class="sidebar-profile-box">
       <img src="assets/web_images/cover-pic.png" width="100%" />
+
       <div class="sidebar-profile-info">
         <img src="assets/web_images/user-1.png" />
-        <h1>John Doe</h1>
+        <h1>{{ userService.user()?.userName }}</h1>
         <h3>Data Analyst at IBM</h3>
         <ul>
           <li>Your profile views <span>24</span></li>
@@ -18,6 +20,7 @@
         <a><img src="assets/web_images/premium.png" />Try Premium</a>
       </div>
     </div>
+    
 
     <div class="sidebar-activity" id="sidebarActivity">
       <h3>RECENT</h3>
@@ -46,12 +49,12 @@
     </div>
     <p id="showMoreLink" onclick="toggleActivity()">Show more <b>+</b></p>
   </div>
+  }
   <!-- main -->
   <div class="main-content">
     <!-- =========================================================-  -->
     <app-feed></app-feed>
     <!-- <router-outlet></router-outlet> -->
-    
   </div>
   <!-- ==========================================================-  -->
 

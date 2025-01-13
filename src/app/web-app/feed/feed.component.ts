@@ -1,5 +1,6 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { share } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-feed',
@@ -9,6 +10,7 @@ import { share } from 'rxjs';
   styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
+  public userService = inject(UserService);
   isLoading = signal(true);
   arr = [1, 2, 3];
   posts = [
