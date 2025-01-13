@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RightSideComponent } from '../right-side/right-side.component';
 import { FeedComponent } from '../feed/feed.component';
 import { UserService } from '../../services/user.service';
