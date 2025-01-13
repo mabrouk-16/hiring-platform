@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RightSideComponent } from '../right-side/right-side.component';
 import { FeedComponent } from '../feed/feed.component';
 import { RouterOutlet } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-left-side',
@@ -11,6 +12,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./left-side.component.css'],
 })
 export class LeftSideComponent implements OnInit {
+  public userService = inject(UserService);
   constructor() {}
 
   ngOnInit() {}

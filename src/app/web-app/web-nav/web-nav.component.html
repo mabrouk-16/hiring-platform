@@ -18,7 +18,10 @@
         >
       </li>
       <li>
-        <a routerLinkActive="active-link" [routerLink]="['/', 'app', 'network']">
+        <a
+          routerLinkActive="active-link"
+          [routerLink]="['/', 'app', 'network']"
+        >
           <img src="assets/web_images/network.png" alt="network" />
           <span>My Network</span></a
         >
@@ -36,7 +39,10 @@
         >
       </li>
       <li>
-        <a routerLinkActive="active-link" [routerLink]="['/', 'app', 'notification']">
+        <a
+          routerLinkActive="active-link"
+          [routerLink]="['/', 'app', 'notification']"
+        >
           <img src="assets/web_images/notification.png" alt="notification" />
           <span>Notifications</span></a
         >
@@ -44,17 +50,21 @@
     </ul>
   </div>
   <div class="navbar-right">
-    <div>
-      <button class="login_btn" (click)="login()">Login</button>
-      <button class="reg_btn" (click)="register()">register</button>
-    </div>
-    <!-- <div class="online">
+    @if (userService.user()) {
+    <div class="online">
       <img
         src="assets/web_images/user-1.png"
         class="nav-profile-img"
         (click)="toggleMenu()"
       />
-    </div> -->
+    </div>
+    } @else {
+
+    <div>
+      <button class="login_btn" (click)="login()">Login</button>
+      <button class="reg_btn" (click)="register()">register</button>
+    </div>
+    }
   </div>
   <!----Dropdown menu-->
   <div class="profile-menu-wrap" id="profileMenu">
@@ -62,7 +72,7 @@
       <div class="user-info">
         <img src="assets/web_images/user-1.png" />
         <div>
-          <h3>John Doe</h3>
+          <h3>{{ userService.user()?.userName }}</h3>
           <a href="#">See your profile</a>
         </div>
       </div>
@@ -87,7 +97,7 @@
         <p>Display & Accessibility</p>
         <span>></span>
       </a>
-      <a href="#" class="profile-menu-link">
+      <a href="#" class="profile-menu-link" (click)="logOut()">
         <img src="assets/web_images/logout.png" />
         <p>Logout</p>
         <span>></span>

@@ -8,6 +8,7 @@ import { WebAppComponent } from './web-app/web-app.component';
 import { NetworkComponent } from './web-app/pages/my network/network/network.component';
 import { HomePageComponent } from './web-app/pages/home/home.component';
 import { NotificationPageComponent } from './web-app/pages/notification-page/notification-page.component';
+import { authGuard } from './shared/auth.guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   {
@@ -19,8 +20,16 @@ export const routes: Routes = [
         component: WebAppComponent,
         children: [
           { path: '', component: HomePageComponent },
-          { path: 'network', component: NetworkComponent },
-          { path: 'notification', component: NotificationPageComponent },
+          {
+            path: 'network',
+            component: NetworkComponent,
+            canActivate: [authGuard],
+          },
+          {
+            path: 'notification',
+            component: NotificationPageComponent,
+            canActivate: [authGuard],
+          },
         ],
       },
 

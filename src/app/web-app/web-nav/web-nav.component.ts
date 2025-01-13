@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoginComponent } from '../auth/login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { WebRegisterComponent } from '../auth/web-register/web-register.component';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-web-nav',
@@ -12,8 +14,10 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./web-nav.component.css'],
 })
 export class WebNavComponent {
+  public userService = inject(UserService);
+
   showLoginPopup = false;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private auth: AuthApiService) {}
   login() {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: 'fit-content',
@@ -32,7 +36,9 @@ export class WebNavComponent {
       }
     });
   }
-
+  logOut() {
+    this.auth.logout();
+  }
   toggleMenu() {
     let profileMenu = document.getElementById('profileMenu');
     profileMenu?.classList.toggle('open-menu');
