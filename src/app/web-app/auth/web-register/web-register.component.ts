@@ -47,14 +47,14 @@ export class WebRegisterComponent implements OnInit {
       ?.setValue(this.registerForm.get('password')?.value);
     this.auth.registerWithFB(this.registerForm.value).subscribe({
       next: () => {
-        const dialogRef = this.dialog.open(LoginComponent, {
-          width: 'fit-content',
-        });
-        dialogRef.afterClosed().subscribe((result) => {
-          if (result) {
-            dialogRef.close();
-          }
-        });
+        // const dialogRef = this.dialog.open(LoginComponent, {
+        //   width: 'fit-content',
+        // });
+        // dialogRef.afterClosed().subscribe((result) => {
+        //   if (result) {
+        //     dialogRef.close();
+        //   }
+        // });
       },
       error: (err) => {
         alert(err);

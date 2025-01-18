@@ -9,6 +9,7 @@ import { NetworkComponent } from './web-app/pages/my network/network/network.com
 import { HomePageComponent } from './web-app/pages/home/home.component';
 import { NotificationPageComponent } from './web-app/pages/notification-page/notification-page.component';
 import { authGuard } from './shared/auth.guard';
+import { ProfileComponent } from './web-app/pages/profile/profile.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   {
@@ -28,6 +29,11 @@ export const routes: Routes = [
           {
             path: 'notification',
             component: NotificationPageComponent,
+            canActivate: [authGuard],
+          },
+          {
+            path: 'profile/:id',
+            component: ProfileComponent,
             canActivate: [authGuard],
           },
         ],

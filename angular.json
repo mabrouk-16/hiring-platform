@@ -24,6 +24,7 @@
               "src/firebase-messaging-sw.js"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/bootstrap/scss/bootstrap-grid.scss",
               "./node_modules/bootstrap/scss/bootstrap-utilities.scss",
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -82,10 +83,10 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
               "src/styles/new.scss",
               "src/styles/responsive.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles/web_style.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]

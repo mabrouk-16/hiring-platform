@@ -1,19 +1,30 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { share } from 'rxjs';
-import { UserService } from '../../services/user.service';
+import { Component, inject } from '@angular/core';
+import { UserService } from '../../../services/user.service';
 import { RouterModule } from '@angular/router';
+import { RightSideComponent } from '../../right-side/right-side.component';
+import { SlicePipe } from '@angular/common';
+import { MatButton } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @Component({
-  selector: 'app-feed',
+  selector: 'app-profile',
   standalone: true,
-  imports: [RouterModule],
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css'],
+  imports: [RouterModule, RightSideComponent, SlicePipe, MatButton],
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.scss',
 })
-export class FeedComponent implements OnInit {
+export class ProfileComponent {
   public userService = inject(UserService);
-  isLoading = signal(true);
-  arr = [1, 2, 3];
+  private dialog = inject(MatDialog);
+
+  editProfile(id?: string) {
+    this.dialog.open(EditProfileComponent, {
+      panelClass: '',
+      maxWidth: '657px',
+    });
+  }
+
   posts = [
     {
       userImage: 'assets/web_images/user-3.png',
@@ -48,23 +59,5 @@ export class FeedComponent implements OnInit {
       comments: '21',
       shares: '4',
     },
-    {
-      userImage: 'assets/web_images/user-3.png',
-      name: 'Bejamin Leo',
-      title: 'Founder and CEO at Giva | Angel Investor',
-      time: '2 hours ago ',
-      body: ' The success of every website depends on Search engine optimisation and digital marketing strategy. If you are not in the first page of all major search engines then you are ahead among your competitors.',
-      thumbnail: 'assets/web_images/post-image-4.png',
-      likedUsers: 'Adam Doe and 31 others',
-      comments: '23',
-      shares: '2',
-    },
   ];
-  constructor() {
-    setTimeout(() => {
-      this.isLoading.set(false);
-    }, 2000);
-  }
-
-  ngOnInit() {}
 }

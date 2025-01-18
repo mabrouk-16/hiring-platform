@@ -6,6 +6,9 @@ import { NotificationService } from '../shared/notification.service';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthApiService } from '../services/auth-api.service';
 import { UserService } from '../services/user.service';
+import { Analytics } from '@angular/fire/analytics';
+import { Auth } from '@angular/fire/auth';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-web-app',
@@ -16,18 +19,16 @@ import { UserService } from '../services/user.service';
 })
 export class WebAppComponent {
   // public notification = inject(NotificationService);
-  private auth = inject(AuthApiService);
+  // auth = inject(Auth);
+  analytics = inject(Analytics);
+  private authApi = inject(AuthApiService);
   public userService = inject(UserService);
 
   ngOnInit(): void {
-    this.auth.user$.subscribe((user) => {
+    this.authApi.user$.subscribe((user) => {
       if (user) {
-        this.userService.user.set({
-          email: user.email,
-          _id: user.uid,
-          userName: user.displayName,
-        });
-      } else this.auth.currentUser.set(null);
+        this.userService.setUserFromFB(user.uid)
+      } else this.authApi.currentUser$.pipe(() => of(null));
     });
   }
 

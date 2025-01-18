@@ -12,10 +12,13 @@
 </div>
 } }@else {
 <!-- =================================== -->
-@if(userService.user()?._id){
+@if(userService.user()?.userId){
 <div class="create-post">
   <div class="create-post-input">
-    <img src="assets/web_images/user-1.png" />
+    <img
+      [routerLink]="['/', 'home', 'profile', userService.user()?.userId]"
+      [src]="userService.user()?.picture || 'assets/web_images/user-1.png'"
+    />
     <textarea rows="2" placeholder="Write Something"></textarea>
   </div>
   <div class="create-post-links">

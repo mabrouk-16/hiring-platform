@@ -36,6 +36,7 @@ export interface User {
   userName?: string | null;
   email?: string | null;
   password?: string;
+  photoUrl?: string;
   phone?: string;
   address?: string;
   role?: string;

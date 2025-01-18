@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Analytics } from '@angular/fire/analytics';
+import { Auth } from '@angular/fire/auth';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,4 +10,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+
 }

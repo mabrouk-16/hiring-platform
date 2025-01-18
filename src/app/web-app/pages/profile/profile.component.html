@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-12 col-md-8 col-xl-6">
+      <section class="mb-4">
+        <img
+          class="w-100"
+          style="height: 250px"
+          src="../../../../assets/web_images/cover-pic.png"
+          alt=""
+          srcset=""
+        />
+        <div class="sidebar-profile-info">
+          <img
+            class="cursor-pointer"
+            [routerLink]="['/', 'app', 'profile', userService.user()?.userId]"
+            [src]="
+              userService.user()?.picture || 'assets/web_images/user-1.png'
+            "
+          />
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <h1
+                class="cursor-pointer"
+                [routerLink]="[
+                  '/',
+                  'app',
+                  'profile',
+                  userService.user()?.userId
+                ]"
+              >
+                {{ userService.user()?.userName }}
+              </h1>
+              <p>
+                {{ userService.user()?.bio }}
+              </p>
+            </div>
+            <button
+              class="rounded-2"
+              mat-stroked-button
+              color="primary"
+              (click)="editProfile(userService.user()?.userId)"
+            >
+              edit profile
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="mb-4">
+        <h1>My Posts</h1>
+        <div class="border border-1 rounded-1">
+          @for (post of posts|slice:0:2; track $index) {
+          <div class="post border border-1 rounded-1">
+            <div class="post-author">
+              <img
+                [src]="
+                  userService.user()?.picture || 'assets/web_images/user-1.png'
+                "
+              />
+              <div>
+                <h1>{{ userService.user()?.userName }}</h1>
+                <small>{{ post.title }}</small
+                ><small>{{ post.time }}</small>
+              </div>
+            </div>
+            <p>{{ post.body }}</p>
+            <img [src]="post.thumbnail" width="100%" />
+            <div class="post-stats">
+              <div>
+                <img src="assets/web_images/thumbsup.png" /><img
+                  src="assets/web_images/love.png"
+                /><img src="assets/web_images/clap.png" /><span
+                  class="liked-users"
+                  >{{ post.likedUsers }}</span
+                >
+              </div>
+              <div>
+                <span
+                  >{{ post.comments }} comments &middot;
+                  {{ post.shares }} shares</span
+                >
+              </div>
+            </div>
+            <div class="post-activity">
+              <div>
+                <img
+                  [src]="
+                    userService.user()?.picture ||
+                    'assets/web_images/user-1.png'
+                  "
+                  class="post-activity-user-icon"
+                /><img
+                  src="assets/web_images/down-arrow.png"
+                  class="post-activity-arrow-icon"
+                />
+              </div>
+              <div class="post-activity-link">
+                <img src="assets/web_images/like.png" /><span>Like</span>
+              </div>
+              <div class="post-activity-link">
+                <img src="assets/web_images/comment.png" /><span>Comment</span>
+              </div>
+              <div class="post-activity-link">
+                <img src="assets/web_images/share.png" /><span>Share</span>
+              </div>
+              <div class="post-activity-link">
+                <img src="assets/web_images/send.png" /><span>Send</span>
+              </div>
+            </div>
+          </div>
+          }
+          <div class="m-3 py-2">
+            <!-- <p class="m-0">View All Posts</p> -->
+            <button mat-raised-button class="w-100">View All Posts</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="d-none d-md-block col-4">
+      <div class="right-sidebar">
+        <app-right-side></app-right-side>
+      </div>
+    </div>
+  </div>
+</div>

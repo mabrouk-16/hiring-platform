@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.auth.loginWithFB(this.loginForm.value).subscribe({
       next: () => {
         this.router.navigate(['/home']);
-        // this.userService.saveUser(res.user);
       },
     });
     // this.auth.login(this.loginForm.value).subscribe({

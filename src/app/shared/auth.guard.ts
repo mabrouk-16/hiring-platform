@@ -15,14 +15,14 @@ export class authGuard {
   ) {}
   canActivate(): boolean {
     // const expectedRoles: string[] = route.data['expectedRoles'];
-    if (!this.userService.user()?._id) {
-       this.router.navigate(['/']).then(() => {
+    if (!this.userService.user()) {
+      this.router.navigate(['/']).then(() => {
         const dialogRef = this.dialog.open(LoginComponent, {
           width: 'fit-content',
         });
-      }); 
+      });
       return false;
     }
-      return true;
+    return true;
   }
 }
