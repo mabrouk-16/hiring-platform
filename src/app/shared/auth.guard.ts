@@ -16,8 +16,8 @@ export class authGuard {
   canActivate(): boolean {
     // const expectedRoles: string[] = route.data['expectedRoles'];
     if (!this.userService.user()) {
-      this.router.navigate(['/']).then(() => {
-        const dialogRef = this.dialog.open(LoginComponent, {
+      this.router.navigate(['']).then(() => {
+        this.dialog.open(LoginComponent, {
           width: 'fit-content',
         });
       });

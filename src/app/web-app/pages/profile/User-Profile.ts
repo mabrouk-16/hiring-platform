@@ -6,8 +6,10 @@ export interface UserProfile {
   picture?: string;
   cover?: string;
   bio?: string;
+  title?: string;
   posts?: string;
   birthDate?: string;
   phone?: string;
   address?: string;
+  links?: string[];
 }

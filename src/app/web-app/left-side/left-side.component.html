@@ -3,7 +3,10 @@
   @if (userService.user() ) {
   <div class="left-sidebar">
     <div class="sidebar-profile-box">
-      <img src="assets/web_images/cover-pic.png" width="100%" />
+      <img
+        [src]="userService.user()?.cover || 'assets/web_images/cover-pic.png'"
+        width="100%"
+      />
 
       <div class="sidebar-profile-info">
         <img

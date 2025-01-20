@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { AuthApiService } from '../../../services/auth-api.service';
 import { loginRes } from '../../../services/auth';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +27,14 @@ export class LoginComponent implements OnInit {
     private auth: AuthApiService,
     private router: Router,
     public userService: UserService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    public ref: MatDialogRef<LoginComponent>
+  ) {
+    if (userService.user()?.userId) {
+      ref.close();
+      console.log(ref)
+    }
+  }
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, Validators.required),

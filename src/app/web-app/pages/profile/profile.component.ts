@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '../../../services/user.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RightSideComponent } from '../../right-side/right-side.component';
 import { SlicePipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
@@ -17,11 +17,15 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 export class ProfileComponent {
   public userService = inject(UserService);
   private dialog = inject(MatDialog);
+  private router = inject(Router);
 
-  editProfile(id?: string) {
+  editProfile() {
+    this.router.navigate([], {
+      fragment: 'general',
+    });
     this.dialog.open(EditProfileComponent, {
       panelClass: '',
-      maxWidth: '657px',
+      width: '660px',
     });
   }
 

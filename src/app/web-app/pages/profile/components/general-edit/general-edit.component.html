@@ -1,0 +1,94 @@
+<div class="account-general">
+  <div class="card-body media align-items-center">
+    @if(imgLoading()) {
+    <div class="d-block ui-w-80 rounded-circle mx-auto">
+      <mat-spinner diameter="25"></mat-spinner>
+    </div>
+    }@else{
+    <img
+      [src]="userService.user()?.picture || 'assets/web_images/user-1.png'"
+      alt=""
+      class="d-block ui-w-80 rounded-circle"
+    />}
+    <div class="media-body ml-4">
+      <label class="btn btn-outline-primary">
+        Upload new photo
+        <input
+          type="file"
+          class="account-settings-fileinput"
+          (change)="changeImgFile($event)"
+        />
+      </label>
+      &nbsp;
+      <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+
+      <div class="text-light small mt-1">
+        Allowed JPG, GIF or PNG. Max size of 800K
+      </div>
+    </div>
+  </div>
+  <hr class="border-light m-0" />
+  <div class="card-body media align-items-center">
+    @if(coverLoading()) {
+    <div class="d-block ui-w-80 mx-auto">
+      <mat-spinner diameter="25"></mat-spinner>
+    </div>
+    }@else{
+    <img
+      [src]="userService.user()?.cover || 'assets/web_images/cover-pic.png'"
+      alt=""
+      width="150px"
+      class="d-block"
+    />}
+    <div class="media-body ml-4">
+      <label class="btn btn-outline-primary">
+        Upload new photo
+        <input
+          type="file"
+          class="account-settings-fileinput"
+          (change)="changeCoverImgFile($event)"
+        />
+      </label>
+    </div>
+  </div>
+  <hr class="border-light m-0" />
+
+  <div class="card-body">
+    <div class="form-group">
+      <label class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control mb-1"
+        [(ngModel)]="userName"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control mb-1"
+        [(ngModel)]="title"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Bio</label>
+      <textarea
+        name=""
+        class="form-control"
+        rows="5"
+        [(ngModel)]="bio"
+      ></textarea>
+    </div>
+  </div>
+</div>
+<div class="text-right m-3">
+  <button
+    type="button"
+    class="btn btn-primary"
+    mat-dialog-close
+    (click)="changeMainInfo()"
+  >
+    Save changes</button
+  >&nbsp;
+  <button type="button" class="btn btn-default" mat-dialog-close>Cancel</button>
+</div>

@@ -27,7 +27,18 @@ export class ProfileService {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
       });
   }
-  updateProfileInfo(body: { userName?: string; bio?: string }) {
+  updateCoverImageByFB(imgUrl: string) {
+    this.userService
+      .updateUserProfile(this.userService.user()?.userId || '', {
+        ...this.userService.user(),
+        cover: imgUrl,
+      })
+      .subscribe(() => {
+        this.userService.setUserFromFB(this.userService.user()?.userId || '');
+      });
+  }
+  updateProfileInfo(body: any) {
+    console.log(body)
     this.userService
       .updateUserProfile(this.userService.user()?.userId || '', {
         ...this.userService.user(),

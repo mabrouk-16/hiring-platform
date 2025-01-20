@@ -5,7 +5,7 @@
         <img
           class="w-100"
           style="height: 250px"
-          src="../../../../assets/web_images/cover-pic.png"
+          [src]="userService.user()?.cover || 'assets/web_images/cover-pic.png'"
           alt=""
           srcset=""
         />
@@ -38,7 +38,7 @@
               class="rounded-2"
               mat-stroked-button
               color="primary"
-              (click)="editProfile(userService.user()?.userId)"
+              (click)="editProfile()"
             >
               edit profile
             </button>
