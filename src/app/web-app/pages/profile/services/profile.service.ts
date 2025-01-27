@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../../../environment';
 import { UserService } from '../../../../services/user.service';
 import { SnackbarService } from '../../../../shared/snack.service';
+import { Post } from '../User-Profile';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,6 @@ export class ProfileService {
       .subscribe(() => {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
         this.snack.success('Your Image Successfully Updated');
-
       });
   }
   updateCoverImageByFB(imgUrl: string) {
@@ -40,11 +40,9 @@ export class ProfileService {
       .subscribe(() => {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
         this.snack.success('Your Cover Image Successfully Updated');
-
       });
   }
   updateProfileInfo(body: any) {
-    console.log(body);
     this.userService
       .updateUserProfile(this.userService.user()?.userId || '', {
         ...this.userService.user(),
@@ -55,4 +53,5 @@ export class ProfileService {
         this.snack.success('Your Information Successfully Updated');
       });
   }
+
 }

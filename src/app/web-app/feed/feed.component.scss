@@ -803,3 +803,10 @@ a {
         background-position: 500px 0;
     }
 }
+.account-settings-fileinput {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}

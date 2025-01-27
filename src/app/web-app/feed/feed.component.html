@@ -19,16 +19,39 @@
       [routerLink]="['/', 'home', 'profile', userService.user()?.userId]"
       [src]="userService.user()?.picture || 'assets/web_images/user-1.png'"
     />
-    <textarea rows="2" placeholder="Write Something"></textarea>
+    <textarea
+      style="font-size: 18px"
+      rows="2"
+      placeholder="Write Something"
+      [(ngModel)]="postBody"
+    ></textarea>
   </div>
   <div class="create-post-links">
-    <li><img src="assets/web_images/photo.png" />Photo</li>
+    <li class="cursor-pointer">
+      <label for="image_input" class="cursor-pointer">
+        <img class="cursor-pointer" src="assets/web_images/photo.png" />Photo
+      </label>
+    </li>
     <li><img src="assets/web_images/video.png" />Video</li>
     <li><img src="assets/web_images/event.png" />Event</li>
-    <li>Post</li>
+    <li class="cursor-pointer" (click)="post()">Post</li>
   </div>
 </div>
-}
+} @if(imgLoading()) {
+<div class="d-block rounded-1 mx-auto">
+  <mat-spinner diameter="25"></mat-spinner>
+</div>
+}@else{
+<img [src]="postThumb" alt="" width="80px" class="d-block rounded-1" />}
+<div class="media-body ml-4">
+  <input
+    id="image_input"
+    type="file"
+    class="account-settings-fileinput"
+    (change)="changeImgFile($event)"
+  />
+</div>
+
 <!-- <div class="sort-by">
   <hr />
   <p>
@@ -36,38 +59,35 @@
   </p>
 </div> -->
 <!-- ================================================================= -->
-@for (post of posts; track $index) {
+@for (post of allPosts(); track $index) {
 <div class="post">
   <div class="post-author">
-    <img [src]="post.userImage" />
+    <img class="me-2" [src]="post.author?.picture" />
     <div>
-      <h1>{{ post.name }}</h1>
-      <small>{{ post.title }}</small
-      ><small>{{ post.time }}</small>
+      <h2 class="m-0">{{ post.author?.userName }}</h2>
+      <small>{{ post.author?.title }}</small
+      ><small>{{ post.timeStamp | date : "dd MMM yyyy" }}</small>
     </div>
   </div>
   <p>{{ post.body }}</p>
-  <img [src]="post.thumbnail" width="100%" />
+  <img class="border border-1" [src]="post.thumbUrl" width="100%" />
   <div class="post-stats">
     <div>
       <img src="assets/web_images/thumbsup.png" /><img
         src="assets/web_images/love.png"
       /><img src="assets/web_images/clap.png" /><span class="liked-users">{{
-        post.likedUsers
+        post.likes
       }}</span>
     </div>
     <div>
-      <span
+      <!-- <span
         >{{ post.comments }} comments &middot; {{ post.shares }} shares</span
-      >
+      > -->
     </div>
   </div>
   <div class="post-activity">
     <div>
-      <img
-        src="assets/web_images/user-1.png"
-        class="post-activity-user-icon"
-      /><img
+      <img [src]="post.author?.picture" class="post-activity-user-icon" /><img
         src="assets/web_images/down-arrow.png"
         class="post-activity-arrow-icon"
       />

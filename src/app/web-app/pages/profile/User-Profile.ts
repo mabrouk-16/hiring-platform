@@ -7,9 +7,23 @@ export interface UserProfile {
   cover?: string;
   bio?: string;
   title?: string;
-  posts?: string;
+  posts?: Post[];
   birthDate?: string;
   phone?: string;
   address?: string;
   links?: string[];
+}
+export interface Post {
+  postId?: string;
+  body?: string;
+  thumbUrl?: string;
+  timeStamp?: Date | string;
+  likes?: number;
+  comments?: [];
+  author?: {
+    userId?: string;
+    userName?: string;
+    picture?: string;
+    title?: string;
+  };
 }

@@ -48,7 +48,7 @@ export class AuthApiService {
           picture: '',
           cover: '',
           bio: '',
-          posts: '',
+          posts: [],
           birthDate: '',
           phone: '',
           address: '',

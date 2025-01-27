@@ -1,19 +1,13 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import {
-  collection,
-  collectionData,
   CollectionReference,
-  doc,
-  docData,
-  docSnapshots,
-  Firestore,
+  doc, Firestore,
   getDoc,
   setDoc,
-  updateDoc,
+  updateDoc
 } from '@angular/fire/firestore';
-import { from, Observable, of, switchMap } from 'rxjs';
+import { from } from 'rxjs';
 import { UserProfile } from '../web-app/pages/profile/User-Profile';
-import { AuthApiService } from './auth-api.service';
 
 @Injectable({
   providedIn: 'root',
