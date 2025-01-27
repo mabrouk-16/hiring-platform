@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../../environment';
 import { UserService } from '../../../../services/user.service';
+import { SnackbarService } from '../../../../shared/snack.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import { UserService } from '../../../../services/user.service';
 export class ProfileService {
   private http = inject(HttpClient);
   private userService = inject(UserService);
+  private snack = inject(SnackbarService);
 
   uploadImageToCloud(data: any): Observable<any> {
     return this.http.post(
@@ -25,6 +27,8 @@ export class ProfileService {
       })
       .subscribe(() => {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
+        this.snack.success('Your Image Successfully Updated');
+
       });
   }
   updateCoverImageByFB(imgUrl: string) {
@@ -35,10 +39,12 @@ export class ProfileService {
       })
       .subscribe(() => {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
+        this.snack.success('Your Cover Image Successfully Updated');
+
       });
   }
   updateProfileInfo(body: any) {
-    console.log(body)
+    console.log(body);
     this.userService
       .updateUserProfile(this.userService.user()?.userId || '', {
         ...this.userService.user(),
@@ -46,6 +52,7 @@ export class ProfileService {
       })
       .subscribe(() => {
         this.userService.setUserFromFB(this.userService.user()?.userId || '');
+        this.snack.success('Your Information Successfully Updated');
       });
   }
 }

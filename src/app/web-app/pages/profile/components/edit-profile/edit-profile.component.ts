@@ -8,6 +8,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router, RouterModule } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { GeneralEditComponent } from '../general-edit/general-edit.component';
+import { InfoEditComponent } from "../info-edit/info-edit.component";
+import { LinksEditComponent } from "../links-edit/links-edit.component";
 
 export enum SectionsFragment {
   general = 'general',
@@ -28,7 +30,9 @@ export enum SectionsFragment {
     RouterModule,
     NgClass,
     GeneralEditComponent,
-  ],
+    InfoEditComponent,
+    LinksEditComponent
+],
   templateUrl: './edit-profile.component.html',
   styleUrl: './edit-profile.component.scss',
 })

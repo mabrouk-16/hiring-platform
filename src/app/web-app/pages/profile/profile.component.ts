@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { UserService } from '../../../services/user.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { RightSideComponent } from '../../right-side/right-side.component';
 import { SlicePipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
@@ -18,6 +18,15 @@ export class ProfileComponent {
   public userService = inject(UserService);
   private dialog = inject(MatDialog);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
+  userId = signal('');
+  constructor() {
+    const id = this.route.snapshot.params['userId'];
+    if (id) {
+      this.userId.set(id);
+    }
+  }
 
   editProfile() {
     this.router.navigate([], {

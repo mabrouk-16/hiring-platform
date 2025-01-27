@@ -1,13 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { UserService } from '../../../../../services/user.service';
 import { ProfileService } from '../../services/profile.service';
-import { NgClass } from '@angular/common';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
-import { SectionsFragment } from '../edit-profile/edit-profile.component';
 import { finalize } from 'rxjs';
 import { environment } from '../../../../../../environment';
 
@@ -22,7 +20,7 @@ import { environment } from '../../../../../../environment';
     RouterModule,
   ],
   templateUrl: './general-edit.component.html',
-  styleUrl: './general-edit.component.scss',
+  styleUrl: '../edit-profile/edit-profile.component.scss',
 })
 export class GeneralEditComponent {
   public userService = inject(UserService);
@@ -32,7 +30,7 @@ export class GeneralEditComponent {
   coverLoading = signal(false);
 
   userName?: string = this.userService.user()?.userName;
-  bio?: string = this.userService.user()?.bio;
+  // bio?: string = this.userService.user()?.bio;
   title?: string = this.userService.user()?.title;
 
   changeImgFile(event: any) {
@@ -72,10 +70,10 @@ export class GeneralEditComponent {
   }
   changeMainInfo() {
     console.log(this.userName);
-    console.log(this.bio);
+    // console.log(this.bio);
     let body = {
       userName: this.userName,
-      bio: this.bio,
+      // bio: this.bio,
       title: this.title,
     };
     this.profileService.updateProfileInfo(body);

@@ -10,6 +10,7 @@ import {
   authState,
 } from '@angular/fire/auth';
 import { UserService } from './user.service';
+import { SnackbarService } from '../shared/snack.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,8 @@ export class AuthApiService {
   url = 'http://localhost:5000/auth/';
   private angularAuth = inject(Auth);
   private userService = inject(UserService);
+  private snack = inject(SnackbarService);
+
   user$ = user(this.angularAuth);
   currentUser$ = authState(this.angularAuth);
   // currentUser: WritableSignal<User | null | undefined> = signal(undefined);
@@ -50,8 +53,14 @@ export class AuthApiService {
           phone: '',
           address: '',
         })
-        .subscribe(() => {
-          this.loginWithFB({ email: body.email, password: body.password });
+        .subscribe({
+          next: () => {
+            this.loginWithFB({ email: body.email, password: body.password });
+            this.snack.success('User Successfully Registered');
+          },
+          error: (error) => {
+            this.snack.error(error.message);
+          },
         });
     });
     return from(promise);
@@ -61,7 +70,7 @@ export class AuthApiService {
       this.angularAuth,
       body.email,
       body.password
-    ).then((response) => console.log(response));
+    ).then((response) => this.snack.success('User Successfully LoggedIn'));
     return from(promise);
   }
   logout(): Observable<void> {

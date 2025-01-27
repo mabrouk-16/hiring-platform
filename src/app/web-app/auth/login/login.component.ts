@@ -14,6 +14,7 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { SnackbarService } from '../../../shared/snack.service';
 
 @Component({
   selector: 'app-login',
@@ -28,11 +29,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public userService: UserService,
     public dialog: MatDialog,
-    public ref: MatDialogRef<LoginComponent>
+    public ref: MatDialogRef<LoginComponent>,
+    private snack: SnackbarService
   ) {
     if (userService.user()?.userId) {
       ref.close();
-      console.log(ref)
+      console.log(ref);
     }
   }
   loginForm: FormGroup = new FormGroup({
@@ -45,6 +47,10 @@ export class LoginComponent implements OnInit {
     this.auth.loginWithFB(this.loginForm.value).subscribe({
       next: () => {
         this.router.navigate(['/home']);
+      },
+
+      error: (error) => {
+        this.snack.error(error.message);
       },
     });
     // this.auth.login(this.loginForm.value).subscribe({

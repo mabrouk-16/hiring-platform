@@ -32,7 +32,7 @@ export const routes: Routes = [
             canActivate: [authGuard],
           },
           {
-            path: 'profile/:id',
+            path: 'profile/:userId',
             component: ProfileComponent,
             canActivate: [authGuard],
           },

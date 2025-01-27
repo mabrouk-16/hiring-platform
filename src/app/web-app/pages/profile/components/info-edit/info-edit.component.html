@@ -1,0 +1,45 @@
+<div class="account-info">
+  <div class="card-body pb-2">
+    <div class="form-group">
+      <label class="form-label">Bio</label>
+      <textarea class="form-control" rows="5" [(ngModel)]="bio"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Birthday</label>
+      <input type="text" class="form-control" [(ngModel)]="birthDate" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Country</label>
+      <select class="custom-select">
+        <option>USA</option>
+        <option selected="">Canada</option>
+        <option>UK</option>
+        <option>Germany</option>
+        <option>France</option>
+      </select>
+    </div>
+  </div>
+  <hr class="border-light m-0" />
+  <div class="card-body pb-2">
+    <h6 class="mb-4">Contacts</h6>
+    <div class="form-group">
+      <label class="form-label">Phone</label>
+      <input type="text" class="form-control" [(ngModel)]="phone" />
+    </div>
+    <!-- <div class="form-group">
+      <label class="form-label"  >Website</label>
+      <input type="text" class="form-control" value="" />
+    </div> -->
+  </div>
+</div>
+<div class="text-right m-3">
+  <button
+    type="button"
+    class="btn btn-primary"
+    mat-dialog-close
+    (click)="changeMainInfo()"
+  >
+    Save changes</button
+  >&nbsp;
+  <button type="button" class="btn btn-default" mat-dialog-close>Cancel</button>
+</div>

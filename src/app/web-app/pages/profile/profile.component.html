@@ -30,10 +30,14 @@
               >
                 {{ userService.user()?.userName }}
               </h1>
+              <p style="font-weight: 600">
+                {{ userService.user()?.title }}
+              </p>
               <p>
                 {{ userService.user()?.bio }}
               </p>
             </div>
+            @if (userId()===userService.user()?.userId) {
             <button
               class="rounded-2"
               mat-stroked-button
@@ -42,6 +46,7 @@
             >
               edit profile
             </button>
+            }
           </div>
         </div>
       </section>
