@@ -3,6 +3,5 @@ export enum UrlsNames {
   app = 'app',
   network = 'network',
   profile = 'profile',
-  my_profile = 'my-profile',
   notification = 'notification',
 }

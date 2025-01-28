@@ -1,4 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { RightSideComponent } from '../../right-side/right-side.component';
@@ -23,6 +28,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent {
   public userService = inject(UserService);
@@ -35,10 +41,12 @@ export class ProfileComponent {
   constructor() {}
 
   ngOnInit() {
-    const id = this.route.snapshot.params['userId'];
-    if (id && id !== this.userService.user()?.userId) {
-      this.getUser(id);
-    }
+    this.route.url.subscribe(() => {
+      const id = this.route.snapshot.params['userId'];
+      if (id && id !== this.userService.user()?.userId) {
+        this.getUser(id);
+      } else this.user.set({ ...this.userService.user() });
+    });
   }
 
   getUser(id: string) {

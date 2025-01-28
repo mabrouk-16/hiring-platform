@@ -34,11 +34,6 @@ export const routes: Routes = [
             canActivate: [authGuard],
           },
           {
-            path: `${UrlsNames.my_profile}`,
-            component: ProfileComponent,
-            canActivate: [authGuard],
-          },
-          {
             path: `${UrlsNames.profile}/:userId`,
             component: ProfileComponent,
             canActivate: [authGuard],

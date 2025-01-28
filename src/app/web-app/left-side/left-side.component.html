@@ -11,12 +11,12 @@
       <div class="sidebar-profile-info">
         <img
           class="cursor-pointer"
-          [routerLink]="['/', 'app', 'my-profile', userService.user()?.userId]"
+          [routerLink]="['/', 'app', 'profile', userService.user()?.userId]"
           [src]="userService.user()?.picture || 'assets/web_images/user-1.png'"
         />
         <h1
           class="cursor-pointer"
-          [routerLink]="['/', 'app', 'my-profile', userService.user()?.userId]"
+          [routerLink]="['/', 'app', 'profile', userService.user()?.userId]"
         >
           {{ userService.user()?.userName }}
         </h1>

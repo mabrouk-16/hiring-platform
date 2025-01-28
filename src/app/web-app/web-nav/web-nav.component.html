@@ -77,7 +77,7 @@
           <h3>{{ userService.user()?.userName }}</h3>
           <a
             (click)="toggleMenu()"
-            [routerLink]="['/', 'app', 'my-profile']"
+            [routerLink]="['/', 'app', 'profile', userService.user()?.userId]"
             >See your profile</a
           >
         </div>
