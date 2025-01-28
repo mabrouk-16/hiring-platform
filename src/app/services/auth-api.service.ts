@@ -45,13 +45,13 @@ export class AuthApiService {
           userName: body.firstName + '' + body.lastName || '',
           email: res.user.email || '',
           emailVerified: res.user.emailVerified || false,
-          picture: '',
-          cover: '',
-          bio: '',
+          picture: null,
+          cover: null,
+          bio: null,
           posts: [],
-          birthDate: '',
-          phone: '',
-          address: '',
+          birthDate: null,
+          phone: null,
+          address: null,
         })
         .subscribe({
           next: () => {

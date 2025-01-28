@@ -3,14 +3,14 @@ export interface UserProfile {
   email?: string;
   emailVerified?: boolean;
   userName?: string;
-  picture?: string;
-  cover?: string;
-  bio?: string;
-  title?: string;
+  picture?: string | null;
+  cover?: string | null;
+  bio?: string | null;
+  title?: string | null;
   posts?: Post[];
-  birthDate?: string;
-  phone?: string;
-  address?: string;
+  birthDate?: string | null;
+  phone?: string | null;
+  address?: string | null;
   links?: string[];
 }
 export interface Post {
@@ -23,7 +23,7 @@ export interface Post {
   author?: {
     userId?: string;
     userName?: string;
-    picture?: string;
-    title?: string;
+    picture?: string | null;
+    title?: string | null;
   };
 }

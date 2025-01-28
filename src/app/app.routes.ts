@@ -10,6 +10,8 @@ import { HomePageComponent } from './web-app/pages/home/home.component';
 import { NotificationPageComponent } from './web-app/pages/notification-page/notification-page.component';
 import { authGuard } from './shared/auth.guard';
 import { ProfileComponent } from './web-app/pages/profile/profile.component';
+import { UrlsNames } from './shared/urlsNames';
+
 export const routes: Routes = [
   { path: '', redirectTo: 'app', pathMatch: 'full' },
   {
@@ -17,22 +19,27 @@ export const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'app',
+        path: `${UrlsNames.app}`,
         component: WebAppComponent,
         children: [
           { path: '', component: HomePageComponent },
           {
-            path: 'network',
+            path: `${UrlsNames.network}`,
             component: NetworkComponent,
             canActivate: [authGuard],
           },
           {
-            path: 'notification',
+            path: `${UrlsNames.notification}`,
             component: NotificationPageComponent,
             canActivate: [authGuard],
           },
           {
-            path: 'profile/:userId',
+            path: `${UrlsNames.my_profile}`,
+            component: ProfileComponent,
+            canActivate: [authGuard],
+          },
+          {
+            path: `${UrlsNames.profile}/:userId`,
             component: ProfileComponent,
             canActivate: [authGuard],
           },

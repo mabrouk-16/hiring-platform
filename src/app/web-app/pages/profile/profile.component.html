@@ -1,43 +1,41 @@
 <div class="container">
+  @if(isLoading()) {
+  <div class="d-block ui-w-80 mx-auto">
+    <mat-spinner diameter="25"></mat-spinner>
+  </div>
+  }@else{
   <div class="row justify-content-between">
     <div class="col-12 col-md-8 col-xl-6">
       <section class="mb-4">
         <img
           class="w-100"
           style="height: 250px"
-          [src]="userService.user()?.cover || 'assets/web_images/cover-pic.png'"
+          [src]="user()?.cover || 'assets/web_images/cover-pic.png'"
           alt=""
           srcset=""
         />
         <div class="sidebar-profile-info">
           <img
             class="cursor-pointer"
-            [routerLink]="['/', 'app', 'profile', userService.user()?.userId]"
-            [src]="
-              userService.user()?.picture || 'assets/web_images/user-1.png'
-            "
+            [routerLink]="['/', 'app', 'profile', user()?.userId]"
+            [src]="user()?.picture || 'assets/web_images/user-1.png'"
           />
           <div class="d-flex align-items-center justify-content-between">
             <div>
               <h1
                 class="cursor-pointer"
-                [routerLink]="[
-                  '/',
-                  'app',
-                  'profile',
-                  userService.user()?.userId
-                ]"
+                [routerLink]="['/', 'app', 'profile', user()?.userId]"
               >
-                {{ userService.user()?.userName }}
+                {{ user()?.userName }}
               </h1>
               <p style="font-weight: 600">
-                {{ userService.user()?.title }}
+                {{ user()?.title }}
               </p>
               <p>
-                {{ userService.user()?.bio }}
+                {{ user()?.bio }}
               </p>
             </div>
-            @if (userId()===userService.user()?.userId) {
+            @if (userService.user()?.userId===user()?.userId) {
             <button
               class="rounded-2"
               mat-stroked-button
@@ -53,45 +51,42 @@
       <section class="mb-4">
         <h1>My Posts</h1>
         <div class="border border-1 rounded-1">
-          @for (post of posts|slice:0:2; track $index) {
+          @for (post of user()?.posts|slice:0:2; track $index) {
           <div class="post border border-1 rounded-1">
             <div class="post-author">
-              <img
-                [src]="
-                  userService.user()?.picture || 'assets/web_images/user-1.png'
-                "
-              />
-              <div>
-                <h1>{{ userService.user()?.userName }}</h1>
-                <small>{{ post.title }}</small
-                ><small>{{ post.time }}</small>
+              <img class="me-2" [src]="post.author?.picture" />
+              <div class="d-flex justify-content-between flex-grow-1">
+                <div>
+                  <h2 class="m-0">{{ post.author?.userName }}</h2>
+                  <small>{{ post.author?.title }}</small>
+                </div>
+                <div>
+                  <small>{{ post.timeStamp | date : "dd MMM yyyy" }}</small>
+                  <small>{{ post.timeStamp | date : "h:mm a" }}</small>
+                </div>
               </div>
             </div>
             <p>{{ post.body }}</p>
-            <img [src]="post.thumbnail" width="100%" />
+            <img class="border border-1" [src]="post.thumbUrl" width="100%" />
             <div class="post-stats">
               <div>
                 <img src="assets/web_images/thumbsup.png" /><img
                   src="assets/web_images/love.png"
                 /><img src="assets/web_images/clap.png" /><span
                   class="liked-users"
-                  >{{ post.likedUsers }}</span
+                  >{{ post.likes }}</span
                 >
               </div>
               <div>
-                <span
-                  >{{ post.comments }} comments &middot;
-                  {{ post.shares }} shares</span
-                >
+                <!-- <span
+        >{{ post.comments }} comments &middot; {{ post.shares }} shares</span
+      > -->
               </div>
             </div>
             <div class="post-activity">
               <div>
                 <img
-                  [src]="
-                    userService.user()?.picture ||
-                    'assets/web_images/user-1.png'
-                  "
+                  [src]="post.author?.picture"
                   class="post-activity-user-icon"
                 /><img
                   src="assets/web_images/down-arrow.png"
@@ -112,6 +107,7 @@
               </div>
             </div>
           </div>
+
           }
           <div class="m-3 py-2">
             <!-- <p class="m-0">View All Posts</p> -->
@@ -126,4 +122,5 @@
       </div>
     </div>
   </div>
+  }
 </div>

@@ -40,6 +40,7 @@ export class PostService {
   addNewPost(post: Post) {
     const postArray = this.userService.user()?.posts;
     postArray?.push(post);
+  
     this.userService
       .updateUserProfile(this.userService.user()?.userId || '', {
         ...this.userService.user(),
@@ -52,6 +53,7 @@ export class PostService {
         }
         this.snack.success('Post created successfully');
       });
+    
   }
   createNewPost(id: string, post: Post) {
     const ref = doc(this.firestore, 'posts', id.toLocaleString());

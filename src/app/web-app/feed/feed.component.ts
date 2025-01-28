@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { RouterModule } from '@angular/router';
 import { environment } from '../../../environment';
@@ -9,6 +9,7 @@ import { Post } from '../pages/profile/User-Profile';
 import { finalize } from 'rxjs';
 import { PostService } from './post.service';
 import { DatePipe } from '@angular/common';
+import { SnackbarService } from '../../shared/snack.service';
 
 @Component({
   selector: 'app-feed',
@@ -21,10 +22,13 @@ export class FeedComponent {
   public userService = inject(UserService);
   public profileService = inject(ProfileService);
   public postService = inject(PostService);
+  private snack = inject(SnackbarService);
 
   allPosts = signal<Post[]>([]);
   isLoading = signal(false);
   imgLoading = signal(false);
+
+  postId = computed(() => this.allPosts().length + 1);
 
   postThumb!: any;
   postBody: string = '';
@@ -39,15 +43,13 @@ export class FeedComponent {
       .getAllPosts()
       .pipe(finalize(() => this.isLoading.set(false)))
       .subscribe((res) => {
-        this.allPosts.set([])
+        this.allPosts.set([]);
         res.forEach((doc) => {
           this.allPosts.update((posts) => {
-            console.log(doc.data());
-            posts.push(doc.data());
+            posts.unshift(doc.data());
             return posts;
           });
         });
-        console.log(this.allPosts());
       });
   }
   changeImgFile(event: any) {
@@ -71,9 +73,8 @@ export class FeedComponent {
     }
   }
   post() {
-    console.log(this.postThumb);
     let post: Post = {
-      postId: (Math.random() * 1898).toFixed(0).toLocaleString(),
+      postId: this.postId().toLocaleString(),
       body: this.postBody,
       thumbUrl: this.postThumb,
       timeStamp: new Date().toISOString(),
@@ -86,14 +87,18 @@ export class FeedComponent {
         title: this.userService.user()?.title,
       },
     };
-    console.log(post);
     if (this.postThumb && this.postBody.length > 5) {
       this.postService.addNewPost(post);
       this.isLoading.set(true);
       setTimeout(() => {
-        this.getAllPosts();
+        this.allPosts.update((posts) => {
+          posts.unshift(post);
+          return posts;
+        });
+        this.postThumb = null;
+        this.postBody = '';
         this.isLoading.set(false);
       }, 300);
-    }
+    } else this.snack.success('Invalid Data');
   }
 }

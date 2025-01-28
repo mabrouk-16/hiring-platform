@@ -31,7 +31,7 @@ export class GeneralEditComponent {
 
   userName?: string = this.userService.user()?.userName;
   // bio?: string = this.userService.user()?.bio;
-  title?: string = this.userService.user()?.title;
+  title?: string | null = this.userService.user()?.title;
 
   changeImgFile(event: any) {
     this.imgLoading.set(true);
@@ -47,7 +47,7 @@ export class GeneralEditComponent {
         .pipe(finalize(() => this.imgLoading.set(false)))
         .subscribe((imageData) => {
           console.log(imageData);
-          this.profileService.updateCoverImageByFB(imageData.url);
+          this.profileService.updateProfileImageByFB(imageData.url);
         });
     }
   }
@@ -64,7 +64,7 @@ export class GeneralEditComponent {
         .uploadImageToCloud(data)
         .pipe(finalize(() => this.coverLoading.set(false)))
         .subscribe((imageData) => {
-          this.profileService.updateProfileImageByFB(imageData.url);
+          this.profileService.updateCoverImageByFB(imageData.url);
         });
     }
   }

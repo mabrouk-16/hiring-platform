@@ -60,13 +60,25 @@
 </div> -->
 <!-- ================================================================= -->
 @for (post of allPosts(); track $index) {
-<div class="post">
+<div class="post border borer-1 rounded-1">
   <div class="post-author">
-    <img class="me-2" [src]="post.author?.picture" />
-    <div>
-      <h2 class="m-0">{{ post.author?.userName }}</h2>
-      <small>{{ post.author?.title }}</small
-      ><small>{{ post.timeStamp | date : "dd MMM yyyy" }}</small>
+    <img
+      [routerLink]="['/', 'app', 'profile', post.author?.userId]"
+      class="me-2 cursor-pointer"
+      [src]="post.author?.picture"
+    />
+    <div class="d-flex justify-content-between flex-grow-1">
+      <div
+        class="cursor-pointer"
+        [routerLink]="['/', 'app', 'profile', post.author?.userId]"
+      >
+        <h2 class="m-0">{{ post.author?.userName }}</h2>
+        <small>{{ post.author?.title }}</small>
+      </div>
+      <div>
+        <small>{{ post.timeStamp | date : "dd MMM yyyy" }}</small>
+        <small>{{ post.timeStamp | date : "h:mm a" }}</small>
+      </div>
     </div>
   </div>
   <p>{{ post.body }}</p>

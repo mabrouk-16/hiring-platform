@@ -16,9 +16,9 @@ export class InfoEditComponent {
   public userService = inject(UserService);
   public profileService = inject(ProfileService);
 
-  bio?: string = this.userService.user()?.bio;
-  birthDate?: string = this.userService.user()?.birthDate;
-  phone?: string = this.userService.user()?.phone;
+  bio?: string | null = this.userService.user()?.bio;
+  birthDate?: string | null = this.userService.user()?.birthDate;
+  phone?: string | null = this.userService.user()?.phone;
 
   changeMainInfo() {
     console.log(this.bio);
@@ -28,6 +28,5 @@ export class InfoEditComponent {
       phone: this.phone,
     };
     this.profileService.updateProfileInfo(body);
-
   }
 }

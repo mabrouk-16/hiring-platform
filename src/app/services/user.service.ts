@@ -26,6 +26,10 @@ export class UserService {
       this.user.set({ ...res.data() });
     });
   }
+  getUserProfile(id: string) {
+    const ref = doc(this.firestore, 'users', id);
+    return from(getDoc(ref))
+  }
   //  authUserProfile() {
   //   this.authService.user$.pipe(switchMap((user)=>{
   //     if (!user?.uid) {
@@ -51,6 +55,7 @@ export class UserService {
     return from(setDoc(ref, user));
   }
   updateUserProfile(id: string, user: UserProfile) {
+    console.log(id);
     const ref = doc(this.firestore, 'users', id);
     return from(updateDoc(ref, { ...user }));
   }
