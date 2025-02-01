@@ -76,7 +76,7 @@ export class FeedComponent {
     let post: Post = {
       postId: this.postId().toLocaleString(),
       body: this.postBody,
-      thumbUrl: this.postThumb,
+      thumbUrl: this.postThumb || '',
       timeStamp: new Date().toISOString(),
       likes: 0,
       comments: [],
@@ -87,7 +87,7 @@ export class FeedComponent {
         title: this.userService.user()?.title,
       },
     };
-    if (this.postThumb && this.postBody.length > 5) {
+    if ( this.postBody.length > 5) {
       this.postService.addNewPost(post);
       this.isLoading.set(true);
       setTimeout(() => {

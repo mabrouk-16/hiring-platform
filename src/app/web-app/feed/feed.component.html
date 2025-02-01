@@ -62,11 +62,12 @@
 @for (post of allPosts(); track $index) {
 <div class="post border borer-1 rounded-1">
   <div class="post-author">
+    @if (post.author?.picture ) {
     <img
       [routerLink]="['/', 'app', 'profile', post.author?.userId]"
       class="me-2 cursor-pointer"
       [src]="post.author?.picture"
-    />
+    />}
     <div class="d-flex justify-content-between flex-grow-1">
       <div
         class="cursor-pointer"
