@@ -2,9 +2,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { LoginComponent } from '../auth/login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { WebRegisterComponent } from '../auth/web-register/web-register.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthApiService } from '../../services/auth-api.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-web-nav',
@@ -15,6 +16,7 @@ import { AuthApiService } from '../../services/auth-api.service';
 })
 export class WebNavComponent {
   public userService = inject(UserService);
+  public router = inject(Router);
 
   showLoginPopup = false;
   constructor(public dialog: MatDialog, private auth: AuthApiService) {}
@@ -37,7 +39,11 @@ export class WebNavComponent {
     });
   }
   logOut() {
-    this.auth.logout();
+    this.auth.logout().pipe(
+      finalize(() => {
+        this.router.navigateByUrl('/');
+      })
+    );
   }
   toggleMenu() {
     let profileMenu = document.getElementById('profileMenu');

@@ -26,18 +26,18 @@
           <span>My Network</span></a
         >
       </li>
-      <li>
+      <!-- <li>
         <a href="#"
           ><img src="assets/web_images/jobs.png" alt="jobs" />
           <span>Jobs</span></a
         >
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
         <a href="#"
           ><img src="assets/web_images/message.png" alt="message" />
           <span>Messaging</span></a
         >
-      </li>
+      </li> -->
       <li>
         <a
           routerLinkActive="active-link"
@@ -83,27 +83,31 @@
         </div>
       </div>
       <hr />
-      <a href="#" class="profile-menu-link">
+      <a class="profile-menu-link">
         <img src="assets/web_images/feedback.png" />
         <p>Give Feedback</p>
         <span>></span>
       </a>
-      <a href="#" class="profile-menu-link">
+      <a class="profile-menu-link">
         <img src="assets/web_images/setting.png" />
         <p>Settings & Privacy</p>
         <span>></span>
       </a>
-      <a href="#" class="profile-menu-link">
+      <a class="profile-menu-link">
         <img src="assets/web_images/help.png" />
         <p>Help & Support</p>
         <span>></span>
       </a>
-      <a href="#" class="profile-menu-link">
+      <a class="profile-menu-link">
         <img src="assets/web_images/display.png" />
         <p>Display & Accessibility</p>
         <span>></span>
       </a>
-      <a href="#" class="profile-menu-link" (click)="logOut(); toggleMenu()">
+      <a
+      href="#"
+        class="profile-menu-link cursor-pointer"
+        (click)="logOut(); toggleMenu()"
+      >
         <img src="assets/web_images/logout.png" />
         <p>Logout</p>
         <span>></span>
